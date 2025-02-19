@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+    <img src="linje.png" alt="linje">
+    <h1>Gästbok</h1>
+    <form action="/add" method="post">
+        <label for="name"> Namn: </label>
+        <br>
+        <input type="text" name="name" id="name" placeholder="Namn" required>
+        <br><br>
+        <label for="message"> Medelande: </label>
+        <br>
+        <textarea name="message" id="message" placeholder="Medelande" required></textarea>
+        <br><br>
+        <button> skicka</button>
+    </form>
+    <img src="linje.png" alt="linje">
+
+    <h2>Tidigare inlägg</h2>
+
+    <ul>
+        <% guestbook.forEach( (message) => { %>
+        <li>
+            <strong><%= message.namn %></strong><br>
+            <%= message.meddelande %>
+        </li>
+        <br>
+        <% } ); %>
+    </ul>
+    <img src="linje.png" alt="linje">
+
+    <form action="/login" method="GET">
+        <h2>Logga in som admin</h2>
+        <button id="button" type="submit"> Logga in </button>
+    </form>
+
+    <script src="index.js"> </script>
+</body>
+</html>

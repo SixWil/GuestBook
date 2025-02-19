@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <img src="linje.png" alt="linje">
+
+    <h1>Admin</h1>
+    <br>
+
+    <ul>
+
+        <% guestbook.forEach( entry => { %>
+        <li>
+            <h2><%= entry.namn %></h2>
+            <form action="/update/<%= entry.id %>" method="POST">
+                <input type="text" id="update" name="newMessage" value="<%= entry.meddelande %>" required>
+                <br><br>
+                <button type="submit"> Uppdatera </button>
+            </form>    
+            <form action="/delete/<%= entry.id %>" method="POST">
+                <button type="submit"> Ta bort </button>
+            </form>
+        </li>
+        <br>
+        <% } );
+        %>
+
+    </ul>
+    <img src="linje.png" alt="linje">
+
+    <form action="/" method="GET">
+        <h2>Huvud sida</h2>
+        <button id="button" type="submit"> Backa </button>
+    </form>
+
+    
+</body>
+</html>
